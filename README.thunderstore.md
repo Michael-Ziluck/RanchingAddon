@@ -13,7 +13,7 @@ Adds configurable skill-scaled chick maturation and growth progress to the origi
 
 ## Recommended optional mods
 
-- [Official BepInEx ConfigurationManager](https://thunderstore.io/c/valheim/p/Azumatt/Official_BepInEx_ConfigurationManager/) — edit settings in game instead of opening the config file.
+- [ConfigurationManager](https://thunderstore.io/c/valheim/p/shudnal/ConfigurationManager/) — edit settings in game instead of opening the config file. It is optional.
 
 ## Installation
 
