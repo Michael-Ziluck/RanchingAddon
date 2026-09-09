@@ -1,0 +1,7 @@
+{
+  "name": "Ranching_Chick_Addon",
+  "version_number": "1.0.0",
+  "website_url": "https://github.com/Michael-Ziluck/RanchingChickAddon",
+  "description": "Add skill-scaled chick growth and level-gated growth hover text to Ranching. Configurable and synchronized with the host. Requires original Ranching.",
+  "dependencies": ["denikson-BepInExPack_Valheim-5.4.2333", "Smoothbrain-Ranching-1.1.6"]
+}
