@@ -41,3 +41,8 @@ Build and automated checks are provided. In-game hover rendering, actual prefab 
 ## Credits and license
 
 Original add-on code: MIT, copyright Michael Ziluck. Original Ranching is by blaxxun/Smoothbrain and remains a separate dependency under its own terms. The chick artwork is from Valheim; see `ATTRIBUTION.md`. ServerSync's license is included in `THIRD_PARTY_NOTICES.md` and `Libs/ServerSync.LICENSE.txt`.
+
+## Check out my other mods
+
+- [Animal Feed Guard](https://thunderstore.io/c/valheim/p/DocZee/AnimalFeedGuard/) — keeps animal feed on the ground near tamed animals instead of letting automatic pickup collect it.
+

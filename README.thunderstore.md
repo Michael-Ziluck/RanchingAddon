@@ -23,4 +23,8 @@ Install this add-on together with [original Ranching](https://thunderstore.io/c/
 
 - [Source, documentation, and issue tracker](https://github.com/Michael-Ziluck/RanchingChickAddon)
 
+## Check out my other mods
+
+- [Animal Feed Guard](https://thunderstore.io/c/valheim/p/DocZee/AnimalFeedGuard/) — keeps animal feed on the ground near tamed animals instead of letting automatic pickup collect it.
+
 Requires [BepInExPack Valheim](https://thunderstore.io/c/valheim/p/denikson/BepInExPack_Valheim/) and [Smoothbrain Ranching](https://thunderstore.io/c/valheim/p/Smoothbrain/Ranching/).
