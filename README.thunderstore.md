@@ -27,4 +27,6 @@ Install this add-on together with [original Ranching](https://thunderstore.io/c/
 
 - [Animal Feed Guard](https://thunderstore.io/c/valheim/p/DocZee/AnimalFeedGuard/) — keeps animal feed on the ground near tamed animals instead of letting automatic pickup collect it.
 
+If you'd like to support ongoing modding work, [Ko-fi](https://ko-fi.com/doczee) is available.
+
 Requires [BepInExPack Valheim](https://thunderstore.io/c/valheim/p/denikson/BepInExPack_Valheim/) and [Smoothbrain Ranching](https://thunderstore.io/c/valheim/p/Smoothbrain/Ranching/).
