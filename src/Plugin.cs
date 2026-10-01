@@ -12,7 +12,7 @@ namespace RanchingChickAddon;
 public sealed class Plugin : BaseUnityPlugin
 {
     public const string Guid = "com.ziluck.valheim.ranchingchickaddon";
-    public const string Version = "1.0.0";
+    public const string Version = "2.0.0";
     private const string RanchingGuid = "org.bepinex.plugins.ranching";
     private readonly ConfigSync sync = new(Guid) { DisplayName = "Ranching - Chick Addon", CurrentVersion = Version, MinimumRequiredVersion = Version };
     internal static ConfigEntry<float> GrowthFactor = null!;

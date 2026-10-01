@@ -1,12 +1,14 @@
 # Ranching - Chick Addon
 
+**2.0.0 targets Valheim 1.0**, built and checked against 1.0.16. Use the 1.x releases for Ashlands.
+
 A standalone add-on for **original Smoothbrain Ranching**. Adds faster chick maturation based on the nearest player's Ranching level, plus a growth percentage on hover unlocked at a configurable skill level. Eggs and other animals are unaffected.
 
 ## Installation
 
 Install with r2modman/Thunderstore; BepInEx and original Ranching are dependencies. For manual installation, place `RanchingChickAddon.dll` in your profile's `BepInEx/plugins/RanchingChickAddon` directory with the dependencies installed.
 
-Use original Ranching 1.1.6, not the earlier experimental 1.1.7 fork with these features built in. The add-on detects that fork and disables itself to avoid applying growth twice. Do not install two copies of Ranching.
+Use original Ranching 1.1.6 or later, not the earlier experimental 1.1.7 fork with these features built in. The add-on detects that fork and disables itself to avoid applying growth twice. Do not install two copies of Ranching.
 
 Install the add-on and Ranching on every participating client and the host/dedicated server. The peer owning each chick awards the bonus; a host-only installation cannot guarantee acceleration when another client owns the creature. Configuration is synchronized from a modded host/server and locked to admins by default. Each viewer's own Ranching level controls the tooltip.
 
@@ -36,7 +38,7 @@ This compiles Release, runs calculation checks, and creates a validated Thunders
 
 ## Testing status
 
-Build and automated checks are provided. In-game hover rendering, actual prefab selection and multiplayer behavior still need testing in a disposable world before using a shared save.
+Valheim 1.0 gameplay was confirmed by the maintainer. Builds run calculation and game/framework reference checks, including the bundled ServerSync library. Full multiplayer regression testing remains separate from these checks.
 
 ## Credits and license
 
@@ -46,7 +48,7 @@ If you'd like to support ongoing modding work, [Ko-fi](https://ko-fi.com/doczee)
 
 ## Check out my other mods
 
-- [Hen Egg Pickup](https://github.com/Michael-Ziluck/HenEggPickup) — automatically collects chicken eggs once enough adult hens are nearby.
+- [Hen Egg Pickup](https://thunderstore.io/c/valheim/p/DocZee/HenEggPickup/) — automatically collects chicken eggs once enough adult hens are nearby.
 
 - [Animal Feed Guard](https://thunderstore.io/c/valheim/p/DocZee/AnimalFeedGuard/) — keeps animal feed on the ground near tamed animals instead of letting automatic pickup collect it.
 

@@ -1,5 +1,7 @@
 # Ranching - Chick Addon
 
+**2.0.0 targets Valheim 1.0**, built and checked against 1.0.16. Use the 1.x releases for Ashlands.
+
 Adds configurable skill-scaled chick maturation and growth progress to the original Ranching mod.
 
 ## Features
@@ -25,7 +27,7 @@ Install this add-on together with [original Ranching](https://thunderstore.io/c/
 
 ## Check out my other mods
 
-- [Hen Egg Pickup](https://github.com/Michael-Ziluck/HenEggPickup) — automatically collects chicken eggs once enough adult hens are nearby.
+- [Hen Egg Pickup](https://thunderstore.io/c/valheim/p/DocZee/HenEggPickup/) — automatically collects chicken eggs once enough adult hens are nearby.
 
 - [Animal Feed Guard](https://thunderstore.io/c/valheim/p/DocZee/AnimalFeedGuard/) — keeps animal feed on the ground near tamed animals instead of letting automatic pickup collect it.
 
