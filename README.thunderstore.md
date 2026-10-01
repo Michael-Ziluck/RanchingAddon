@@ -1,6 +1,6 @@
-# Ranching - Chick Addon
+# RanchingChickAddon
 
-**2.0.0 targets Valheim 1.0**, built and checked against 1.0.16. Use the 1.x releases for Ashlands.
+**2.x targets Valheim 1.0**, built and checked against 1.0.16. Use the 1.x releases for Ashlands.
 
 Adds configurable skill-scaled chick maturation and growth progress to the original Ranching mod.
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.1
+
+- Use `RanchingChickAddon` for the README title while retaining the existing Thunderstore listing.
+- Move build, package, and publishing scripts into `ci` and normalize `tests/checks`.
+- Restore checksum-pinned ServerSync at build time instead of storing the dependency DLL in Git.
+- Add repository sponsorship links and automatic dependency update checks.
+
 ## 2.0.0
 
 - Formally target Valheim 1.0; compiled and checked against 1.0.16.

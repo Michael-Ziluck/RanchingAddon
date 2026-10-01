@@ -1,6 +1,6 @@
-# Ranching - Chick Addon
+# RanchingChickAddon
 
-**2.0.0 targets Valheim 1.0**, built and checked against 1.0.16. Use the 1.x releases for Ashlands.
+**2.x targets Valheim 1.0**, built and checked against 1.0.16. Use the 1.x releases for Ashlands.
 
 A standalone add-on for **original Smoothbrain Ranching**. Adds faster chick maturation based on the nearest player's Ranching level, plus a growth percentage on hover unlocked at a configurable skill level. Eggs and other animals are unaffected.
 
