@@ -29,14 +29,14 @@ Bonus age is saved in the chick's network data. Disabling further acceleration r
 ## Build
 
 ```powershell
-./Build.ps1 -GamePath "E:\Games\SteamLibrary\steamapps\common\Valheim"
+./ci/Build.ps1 -GamePath "E:\Games\SteamLibrary\steamapps\common\Valheim"
 ```
 
 This compiles Release, runs calculation checks, and creates a validated Thunderstore ZIP under `artifacts`. Set `-OutputDirectory` to choose another destination. Requires PowerShell, a .NET SDK and local Valheim/BepInEx assemblies. No publicized game assemblies are needed, and build scripts never install the mod.
 
 The build automatically downloads ServerSync v1.20 into an ignored dependency cache and verifies its SHA-256 checksum against `ci/dependencies.json`. This also happens when running `dotnet build` directly; PowerShell 7 (`pwsh`) and internet access are needed on the first build.
 
-`Package.ps1` validates and packages an existing Release build. The ZIP contains one plugin DLL, required Thunderstore metadata, the icon, and license/attribution files. ServerSync is merged into the DLL under its MIT-0 license. Ranching and SkillManager are not bundled or linked as assembly references; the add-on reads Ranching's synchronized skill value.
+`ci/Package.ps1` validates and packages an existing Release build. The ZIP contains one plugin DLL, required Thunderstore metadata, the icon, and license/attribution files. ServerSync is merged into the DLL under its MIT-0 license. Ranching and SkillManager are not bundled or linked as assembly references; the add-on reads Ranching's synchronized skill value.
 
 ## Testing status
 
