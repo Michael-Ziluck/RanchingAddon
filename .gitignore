@@ -9,3 +9,4 @@ artifacts/
 .env
 .env.*
 *.zip
+Libs/*.dll

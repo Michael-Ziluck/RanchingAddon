@@ -7,12 +7,13 @@
     <GamePath Condition="'$(GamePath)' == ''">E:\Games\SteamLibrary\steamapps\common\Valheim</GamePath>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <ServerSyncPath>$(MSBuildProjectDirectory)/.local/dependencies/ServerSync/1.20/ServerSync.dll</ServerSyncPath>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="src/*.cs" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
     <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.46" PrivateAssets="all" />
-    <Reference Include="ServerSync"><HintPath>Libs/ServerSync.dll</HintPath><Private>true</Private></Reference>
+    <Reference Include="ServerSync"><HintPath>$(ServerSyncPath)</HintPath><Private>true</Private></Reference>
     <Reference Include="BepInEx"><HintPath>$(GamePath)/BepInEx/core/BepInEx.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="0Harmony"><HintPath>$(GamePath)/BepInEx/core/0Harmony.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="assembly_valheim"><HintPath>$(GamePath)/valheim_Data/Managed/assembly_valheim.dll</HintPath><Private>false</Private></Reference>
@@ -21,4 +22,7 @@
     <Reference Include="UnityEngine.CoreModule"><HintPath>$(GamePath)/valheim_Data/Managed/UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
   </ItemGroup>
 
+  <Target Name="RestoreServerSync" BeforeTargets="ResolveAssemblyReferences">
+    <Exec Command="pwsh -NoProfile -File &quot;$(MSBuildProjectDirectory)/ci/Restore-ServerSync.ps1&quot;" />
+  </Target>
 </Project>

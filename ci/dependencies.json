@@ -6,6 +6,11 @@
     "url": "https://thunderstore.io/package/download/denikson/BepInExPack_Valheim/5.4.2350/",
     "sha256": "37A91C000B4E88F2ED7A4BD7D812239852D2E36CBF0FF0A9F5FAACFBA46B105F"
   },
+  "serverSync": {
+    "version": "1.20",
+    "url": "https://github.com/blaxxun-boop/ServerSync/releases/download/v1.20/ServerSync.dll",
+    "sha256": "E8B61F621CC396C529D9194F202E0B22C6591DD919363A4501A579F9F7252E0E"
+  },
   "steamcmd": {
     "url": "https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip",
     "sha256": "7669B170DEE42DB8EE2273775ED7DFB2D173BDBA1B849F70D2C7B379290BCE13",
