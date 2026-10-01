@@ -19,7 +19,9 @@ function Get-PackageManifest([string]$PackageFile) {
 function Resolve-Package([string]$PackageFile, [string]$Root) {
     if (!$PackageFile) {
         $current = Get-Content (Join-Path $Root 'manifest.json') -Raw | ConvertFrom-Json
-        $PackageFile = Join-Path $Root "artifacts/$($current.name)-$($current.version_number)-Thunderstore.zip"
+        $project = @(Get-ChildItem -LiteralPath $Root -Filter '*.csproj' -File)
+        if ($project.Count -ne 1) { throw 'Expected one mod project to determine the ZIP name.' }
+        $PackageFile = Join-Path $Root "artifacts/$($project[0].BaseName)-$($current.version_number)-Thunderstore.zip"
     }
     if (!(Test-Path -LiteralPath $PackageFile -PathType Leaf)) { throw 'Build a ZIP first or pass -PackageFile.' }
     return (Resolve-Path -LiteralPath $PackageFile).Path

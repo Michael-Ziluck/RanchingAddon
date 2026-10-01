@@ -29,7 +29,7 @@ foreach ($name in $packageFiles) {
     Copy-Item -LiteralPath (Join-Path $PSScriptRoot $sourceName) -Destination (Join-Path $stage $name)
 }
 Add-Type -AssemblyName System.IO.Compression.FileSystem
-$zipPath = Join-Path $OutputDirectory ("$($manifest.name)-$($manifest.version_number)-Thunderstore.zip")
+$zipPath = Join-Path $OutputDirectory ("$assemblyName-$($manifest.version_number)-Thunderstore.zip")
 if (Test-Path -LiteralPath $zipPath) { Remove-Item -LiteralPath $zipPath }
 [IO.Compression.ZipFile]::CreateFromDirectory($stage, $zipPath)
 $zip = [IO.Compression.ZipFile]::OpenRead($zipPath)

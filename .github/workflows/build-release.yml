@@ -38,7 +38,8 @@ jobs:
         shell: pwsh
         run: |
           $manifest = Get-Content manifest.json -Raw | ConvertFrom-Json
-          $name = "$($manifest.name)-$($manifest.version_number)-Thunderstore.zip"
+          $project = Get-ChildItem -Filter '*.csproj' -File | Select-Object -First 1
+          $name = "$($project.BaseName)-$($manifest.version_number)-Thunderstore.zip"
           "file=$name" >> $env:GITHUB_OUTPUT
           Copy-Item .ci-game/build-references.json artifacts/build-references.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
