@@ -9,5 +9,6 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Release build failed' }
     dotnet run --project tests/Checks -c Release
     if ($LASTEXITCODE -ne 0) { throw 'Checks failed' }
+    & (Join-Path $PSScriptRoot 'ci/Verify-References.ps1') -GamePath $GamePath -PluginPath (Join-Path $PSScriptRoot 'bin/Release/net48/RanchingChickAddon.dll')
     & (Join-Path $PSScriptRoot 'Package.ps1') -OutputDirectory $OutputDirectory
 } finally { Pop-Location }

@@ -25,6 +25,8 @@ Install this add-on together with [original Ranching](https://thunderstore.io/c/
 
 ## Check out my other mods
 
+- [Hen Egg Pickup](https://github.com/Michael-Ziluck/HenEggPickup) — automatically collects chicken eggs once enough adult hens are nearby.
+
 - [Animal Feed Guard](https://thunderstore.io/c/valheim/p/DocZee/AnimalFeedGuard/) — keeps animal feed on the ground near tamed animals instead of letting automatic pickup collect it.
 
 If you'd like to support ongoing modding work, [Ko-fi](https://ko-fi.com/doczee) is available.
