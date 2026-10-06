@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Separate the ownership clock from growth calculations and name the calculation limits explicitly.
+- Reuse the nearest player's network component during a growth update.
+- Add simulated growth and hover hook checks, plus clock and transpiler boundary tests.
+- Include every check project in dependency updates.
+
 ## 3.0.1
 
 - Add skill-gated incubation percentage and remaining time to chicken and Asksvin egg hover text.

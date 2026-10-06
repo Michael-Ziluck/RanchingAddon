@@ -2,7 +2,7 @@
 
 GitHub Actions builds, checks, and packages every push to `main`, every pull request targeting
 `main`, and manual workflow runs. ZIPs and a reference-version report are saved as workflow artifacts.
-Pull requests only build; publishing jobs run from `main` after a successful build.
+Pull requests run build checks. Publishing is guarded while the Asksvin changes await in-game verification.
 
 Hosted Windows runners download the Valheim dedicated server anonymously with SteamCMD for its
 actual game assemblies, and a checksum-pinned BepInExPack. No Steam login or game assemblies are
@@ -24,9 +24,11 @@ setup in `.github/workflows/codeql.yml`. Other security features remain enabled.
 
 Publication is disabled while RanchingAddon 3.0.1 is being tested. Enable the desired variables only after the in-game checklist passes and publication is authorized.
 
+Both local publishing scripts also contain explicit guards. When publication is authorized, remove those guards in `Publish.ps1` and `Publish-GitHub.ps1` before enabling the repository variables.
+
 Repository variables:
 
-| Variable | Value | Purpose |
+| Variable | Set to | Purpose |
 | --- | --- | --- |
 | RELEASE_PUBLISH_ENABLED | false | Create `vX.Y.Z` GitHub releases with the ZIP. |
 | THUNDERSTORE_PUBLISH_ENABLED | false | Upload new versions to DocZee on Thunderstore. |

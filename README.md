@@ -56,6 +56,8 @@ Upstream does **not** accelerate `Growup` or add juvenile growth hover text. Tho
 
 Build compiles Release, runs growth/ownership/species/hover checks, tests the transpiler against actual game IL, verifies game/framework references, and creates `artifacts/RanchingAddon-3.0.1-Thunderstore.zip`. Use `-OutputDirectory` to choose another destination. Scripts never install the mod or edit saves.
 
+The runtime harness also executes the production growth and hover hooks through Harmony against simulated game objects. It checks owner changes, player proximity and skill, persisted bonus age, maturation, and read-only hover behavior. It does not run Unity or ServerSync networking.
+
 Requires PowerShell 7, a .NET SDK, and local Valheim/BepInEx assemblies. ServerSync v1.20 is downloaded into an ignored cache with SHA-256 verification; ILRepack merges it into the plugin under its MIT-0 license. Ranching and SkillManager remain separate dependencies and are neither copied nor linked as assembly references.
 
 Both registry publishing scripts support `-WhatIf`. GitHub Actions builds and CodeQL use real dedicated-server assemblies; see [ci/README.md](ci/README.md). Publication remains disabled for this test release.
