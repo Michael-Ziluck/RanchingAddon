@@ -54,6 +54,15 @@ internal static class Program
         Assert(rewritten.Count(i => i.operand is MethodInfo m && m.Name == "IsOwner") == 1, "game owner guard remains");
         Assert(rewritten.Count(i => i.operand is MethodInfo m && m.Name == "GetPrefab") == 1, "vanilla adult selection remains");
 
+        var generator = new System.Reflection.Emit.DynamicMethod("growthLabels", typeof(void), Type.EmptyTypes).GetILGenerator();
+        var label = generator.DefineLabel();
+        var ageInstruction = new CodeInstruction(System.Reflection.Emit.OpCodes.Call, age);
+        ageInstruction.labels.Add(label);
+        ageInstruction.blocks.Add(new ExceptionBlock(ExceptionBlockType.BeginExceptionBlock));
+        var labelled = Rewrite(transpiler, new[] { ageInstruction }).Single();
+        Assert(labelled.labels.Single() == label, "age replacement retains branch labels");
+        Assert(labelled.blocks.Single().blockType == ExceptionBlockType.BeginExceptionBlock, "age replacement retains exception boundaries");
+
         Reject(transpiler, new[] { new CodeInstruction(System.Reflection.Emit.OpCodes.Ret) }, "missing age call rejected");
         Reject(transpiler, new[] { new CodeInstruction(System.Reflection.Emit.OpCodes.Call, age), new CodeInstruction(System.Reflection.Emit.OpCodes.Call, age) }, "ambiguous age calls rejected");
 
