@@ -14,7 +14,7 @@ public sealed class Plugin : BaseUnityPlugin
     // Retain the plugin identity and config path for existing installations.
     // RanchingAddon replaces RanchingChickAddon; install only one package.
     public const string Guid = "com.ziluck.valheim.ranchingchickaddon";
-    public const string Version = "3.0.0";
+    public const string Version = "3.0.1";
     private const string RanchingGuid = "org.bepinex.plugins.ranching";
     private readonly ConfigSync sync = new(Guid) { DisplayName = "RanchingAddon", CurrentVersion = Version, MinimumRequiredVersion = Version };
     internal static ConfigEntry<float> ChickenGrowthFactor = null!;
@@ -42,7 +42,7 @@ public sealed class Plugin : BaseUnityPlugin
         {
             harmony = new Harmony(Guid);
             harmony.PatchAll(typeof(Plugin).Assembly);
-            Logger.LogInfo("RanchingAddon ready: chick and Asksvin hatchling growth enabled. Taming, drops, XP, and breeding remain supplied by original Ranching.");
+            Logger.LogInfo("RanchingAddon ready: chick and Asksvin hatchling growth, plus egg incubation information enabled. Taming, drops, XP, and breeding remain supplied by original Ranching.");
         }
         catch (Exception error)
         {
@@ -60,7 +60,7 @@ public sealed class Plugin : BaseUnityPlugin
 
     private ConfigEntry<int> BindInfoLevel(string section)
     {
-        var entry = Config.Bind(section, "Growth Info Level Requirement", 30, new ConfigDescription("Viewer's minimum Ranching level to see juvenile growth percentage. 0 disables the display.", new AcceptableValueRange<int>(0, 100)));
+        var entry = Config.Bind(section, "Growth Info Level Requirement", 30, new ConfigDescription("Viewer's minimum Ranching level to see juvenile growth percentage and egg incubation progress. 0 disables both displays for this species.", new AcceptableValueRange<int>(0, 100)));
         sync.AddConfigEntry(entry);
         return entry;
     }

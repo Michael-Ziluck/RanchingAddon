@@ -8,13 +8,14 @@ Faster-growing chicks and Asksvin hatchlings, powered by your **Ranching** skill
 
 - Skill-scaled maturation for chicks **and Asksvin hatchlings** near the nearest player within 10 metres.
 - Separate growth-speed settings for chickens and Asksvin. Default: 2x at Ranching 100; 1.5x at Ranching 50.
-- Separate skill requirements for growth information on hover. Default: Ranching 30 for both.
+- Separate skill requirements for growth and egg incubation information on hover. Default: Ranching 30 for both.
+- Incubating eggs show percentage and time remaining; stacked and inactive eggs show their status. Egg incubation speed is unchanged.
 - Saved bonus growth age, with owner-only updates and no bonus for time spent unloaded.
 - Host/server-synchronized configuration, locked to admins by default.
 
 Original Ranching already applies taming speed/XP, calming, increased tamed-creature slaughter drops/XP, hunger information, breeding information, and offspring level bonuses to Asksvin. This addon uses those existing benefits without multiplying them twice. Configure them in Ranching's own settings.
 
-Egg incubation, adult animals, and other species are unaffected. Existing chick settings and saved bonus growth are preserved.
+Egg incubation speed, adult animals, and other species are unaffected. Chicken and Asksvin eggs show incubation percentage and time remaining at the corresponding species' hover level, or a stacked/inactive status. Existing chick settings and saved bonus growth are preserved.
 
 ## Requirements and upgrading
 
@@ -22,7 +23,7 @@ Requires **original Smoothbrain Ranching 1.1.9 or later** and BepInExPack Valhei
 
 **RanchingAddon replaces RanchingChickAddon / Ranching_Chick_Addon. Remove the old addon before installing this package.** Do not use the earlier experimental Ranching fork or install duplicate copies of Ranching.
 
-The configuration filename stays `BepInEx/config/com.ziluck.valheim.ranchingchickaddon.cfg` so your existing settings carry over. Configure `Chicken Growth Factor` under `Chicks` and `Asksvin Growth Factor` under `Asksvin` (range 1–10). Each section has its own `Growth Info Level Requirement` (range 0–100; 0 disables the display).
+The configuration filename stays `BepInEx/config/com.ziluck.valheim.ranchingchickaddon.cfg` so your existing settings carry over. Configure `Chicken Growth Factor` under `Chicks` and `Asksvin Growth Factor` under `Asksvin` (range 1â€“10). Each section has its own `Growth Info Level Requirement` (range 0â€“100; 0 disables growth and egg displays for that species).
 
 ## Recommended optional dependency
 
@@ -38,5 +39,5 @@ If you'd like to support ongoing modding work, [Ko-fi](https://ko-fi.com/doczee)
 
 ## Check out my other mods
 
-- [HenEggPickup](https://thunderstore.io/c/valheim/p/DocZee/HenEggPickup/) — automatically collects chicken eggs once enough adult hens are nearby.
-- [AnimalFeedGuard](https://thunderstore.io/c/valheim/p/DocZee/AnimalFeedGuard/) — keeps animal feed on the ground near tamed animals instead of letting automatic pickup collect it.
+- [HenEggPickup](https://thunderstore.io/c/valheim/p/DocZee/HenEggPickup/) â€” automatically collects chicken eggs once enough adult hens are nearby.
+- [AnimalFeedGuard](https://thunderstore.io/c/valheim/p/DocZee/AnimalFeedGuard/) â€” keeps animal feed on the ground near tamed animals instead of letting automatic pickup collect it.

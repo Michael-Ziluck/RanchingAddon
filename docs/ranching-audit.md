@@ -19,7 +19,7 @@ Base hunger/pregnancy/calming/offspring bonuses use Ranching's settings and skil
 
 Both `Chicken -> Hen` and `Asksvin_hatchling -> Asksvin` have `Growup`, with a vanilla maturation time of 3000 seconds. Their alternate grown-prefab lists are empty. Both juveniles lack `Tameable`, so adult hunger/breeding hover information is not a missing juvenile feature. `Character.GetHoverText` returns an empty string without `Tameable`; the addon supplies a name and growth percentage at the configured skill level.
 
-Upstream has no `Growup` or `EggGrow` patches. The addon previously covered only chick maturation, not egg incubation. It now covers those two specific juvenile/adult pairs; it still does not modify egg incubation or other species.
+Upstream has no `Growup` or `EggGrow` patches. The addon previously covered only chick maturation, not egg incubation. It now covers those two specific juvenile/adult pairs; it does not modify egg incubation speed or other species. Version 3.0.1 additionally appends read-only egg incubation information.
 
 ## Patch boundaries
 
@@ -27,3 +27,9 @@ Upstream has no `Growup` or `EggGrow` patches. The addon previously covered only
 - One `BaseAI.GetTimeSinceSpawned` call in that method is replaced with effective age. Vanilla ownership, adult-prefab selection, tameness, level inheritance, and destruction remain intact. Unsupported age-check IL fails patching and disables the addon.
 - `Character.GetHoverText` postfix: read-only growth display gated by the local viewer's skill; preserves other hover text.
 - No patches added to Ranching itself. No unlicensed upstream implementation copied.
+
+## Egg hover follow-up
+
+Installed ChickenEgg and AsksvinEgg both use EggGrow with a 1800-second timer and five-second update interval. Both require nearby heat; ChickenEgg requires shelter, while AsksvinEgg has `m_requireUnderRoof = false`. Vanilla EggGrow.GetHoverText preserves the normal item text and warm/cold/stacked label, but has no percentage or remaining-time display.
+
+The 3.0.1 addon appends information through an EggGrow.GetHoverText postfix for only ChickenEgg -> Chicken and AsksvinEgg -> Asksvin_hatchling. It reads `ZDOVars.s_growStart` and network time; it never calls CanGrow, Load, or any ZDO setter. Percentage is clamped to 0–100 and remains at 100 until vanilla performs the next hatch check. Losing the vanilla incubation conditions resets the timer normally. Each species' existing Growth Info Level Requirement controls both egg and juvenile information; 0 hides both.

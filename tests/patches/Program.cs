@@ -39,6 +39,12 @@ internal static class Program
         Assert(target != null && target.ReturnType == typeof(void) && target.GetParameters().Length == 0, "growth patch target signature");
         MethodInfo hover = AccessTools.Method(typeof(Character), nameof(Character.GetHoverText));
         Assert(hover != null && hover.ReturnType == typeof(string) && hover.GetParameters().Length == 0, "hover patch target signature");
+        MethodInfo eggHover = AccessTools.Method(typeof(EggGrow), nameof(EggGrow.GetHoverText));
+        Assert(eggHover != null && eggHover.ReturnType == typeof(string) && eggHover.GetParameters().Length == 0, "egg hover patch target signature");
+        Type eggPatch = addon.GetType("RanchingAddon.EggHover", true)!;
+        List<CodeInstruction> eggCode = PatchProcessor.GetOriginalInstructions(AccessTools.Method(eggPatch, "Postfix"));
+        Assert(eggCode.Any(i => i.operand is MethodInfo m && m.DeclaringType == typeof(ZDO) && m.Name == "GetFloat"), "egg hover reads synchronized incubation timer");
+        Assert(!eggCode.Any(i => i.operand is MethodInfo m && (m.Name == "Set" || m.Name == "Load" || m.Name == "CanGrow")), "egg hover does not mutate or restart incubation");
 
         List<CodeInstruction> original = PatchProcessor.GetOriginalInstructions(target);
         List<CodeInstruction> rewritten = Rewrite(transpiler, original);

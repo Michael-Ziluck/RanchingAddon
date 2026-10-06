@@ -22,7 +22,7 @@ internal static class CreatureGrowth
 	private static float Factor(GrowthSpecies species) => species == GrowthSpecies.Chicken
 		? Plugin.ChickenGrowthFactor.Value : Plugin.AsksvinGrowthFactor.Value;
 
-	private static int InfoLevel(GrowthSpecies species) => species == GrowthSpecies.Chicken
+	internal static int InfoLevel(GrowthSpecies species) => species == GrowthSpecies.Chicken
 		? Plugin.ChickenInfoLevel.Value : Plugin.AsksvinInfoLevel.Value;
 
 	// Only the network owner awards bonus age. First observation/ownership change

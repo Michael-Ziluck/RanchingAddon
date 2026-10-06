@@ -8,5 +8,6 @@
   <ItemGroup>
     <Compile Include="../../src/GrowthMath.cs" Link="GrowthMath.cs" />
     <Compile Include="../../src/GrowthPolicy.cs" Link="GrowthPolicy.cs" />
+    <Compile Include="../../src/EggInfo.cs" Link="EggInfo.cs" />
   </ItemGroup>
 </Project>

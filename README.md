@@ -2,7 +2,7 @@
 
 A companion to [Smoothbrain Ranching](https://thunderstore.io/c/valheim/p/Smoothbrain/Ranching/) for chickens and Asksvin. Adds skill-scaled juvenile growth and growth percentages on hover, while original Ranching supplies taming, drops, XP, and breeding benefits for both species.
 
-Version 3.0.0 targets Valheim 1.0 and replaces RanchingChickAddon. This release is prepared for testing; automatic publication is disabled.
+Version 3.0.1 targets Valheim 1.0 and replaces RanchingChickAddon. This release is prepared for testing; automatic publication is disabled.
 
 ## Installation and upgrading
 
@@ -23,14 +23,14 @@ File: `BepInEx/config/com.ziluck.valheim.ranchingchickaddon.cfg`.
 | Section | Setting | Default | Meaning |
 | --- | --- | --- | --- |
 | General | Lock Configuration | true | Only host/server admins can change synchronized settings. |
-| Chicks | Chicken Growth Factor | 2 | Chick maturation speed at Ranching 100, with a player within 10 metres. Range 1–10; 1 disables new bonus age. |
-| Chicks | Growth Info Level Requirement | 30 | Viewer's skill required to see chick growth percentage. Range 0–100; 0 disables it. |
-| Asksvin | Asksvin Growth Factor | 2 | Hatchling maturation speed at Ranching 100, with a player within 10 metres. Range 1–10; 1 disables new bonus age. |
-| Asksvin | Growth Info Level Requirement | 30 | Viewer's skill required to see hatchling growth percentage. Range 0–100; 0 disables it. |
+| Chicks | Chicken Growth Factor | 2 | Chick maturation speed at Ranching 100, with a player within 10 metres. Range 1â€“10; 1 disables new bonus age. |
+| Chicks | Growth Info Level Requirement | 30 | Viewer's skill required to see chick growth and chicken egg incubation information. Range 0â€“100; 0 disables it. |
+| Asksvin | Asksvin Growth Factor | 2 | Hatchling maturation speed at Ranching 100, with a player within 10 metres. Range 1â€“10; 1 disables new bonus age. |
+| Asksvin | Growth Info Level Requirement | 30 | Viewer's skill required to see hatchling growth and Asksvin egg incubation information. Range 0â€“100; 0 disables it. |
 
 At Ranching 50 with factor 2, growth speed is 1.5x. The nearest player's synchronized skill is used. Proximity is sampled at the game's growth checks, roughly every 10 seconds. First observation after loading or ownership transfer gives no retroactive bonus; long gaps are capped at one interval. Unloaded time earns no proximity bonus.
 
-Bonus age is persisted in creature network data, separately for each species. Setting a factor to 1 retains earned age; uninstalling stops applying it. Hover text includes earned bonus age and preserves existing text. Eggs, egg incubation, adult animals, and other juvenile species are unaffected. Vanilla maturation continues to inherit tameness and creature level.
+Bonus age is persisted in creature network data, separately for each species. Setting a factor to 1 retains earned age; uninstalling stops applying it. Hover text includes earned bonus age and preserves existing text. Egg incubation speed, adult animals, and other juvenile species are unaffected. Chicken and Asksvin eggs now show incubation progress and remaining time at the corresponding species' hover level; stacked and inactive eggs show their status. Vanilla maturation continues to inherit tameness and creature level.
 
 ## What original Ranching already does for Asksvin
 
@@ -54,7 +54,7 @@ Upstream does **not** accelerate `Growup` or add juvenile growth hover text. Tho
 ./ci/Build.ps1 -GamePath "E:\Games\SteamLibrary\steamapps\common\Valheim"
 ```
 
-Build compiles Release, runs growth/ownership/species/hover checks, tests the transpiler against actual game IL, verifies game/framework references, and creates `artifacts/RanchingAddon-3.0.0-Thunderstore.zip`. Use `-OutputDirectory` to choose another destination. Scripts never install the mod or edit saves.
+Build compiles Release, runs growth/ownership/species/hover checks, tests the transpiler against actual game IL, verifies game/framework references, and creates `artifacts/RanchingAddon-3.0.1-Thunderstore.zip`. Use `-OutputDirectory` to choose another destination. Scripts never install the mod or edit saves.
 
 Requires PowerShell 7, a .NET SDK, and local Valheim/BepInEx assemblies. ServerSync v1.20 is downloaded into an ignored cache with SHA-256 verification; ILRepack merges it into the plugin under its MIT-0 license. Ranching and SkillManager remain separate dependencies and are neither copied nor linked as assembly references.
 
@@ -72,5 +72,5 @@ If you'd like to support ongoing modding work, [Ko-fi](https://ko-fi.com/doczee)
 
 ## Check out my other mods
 
-- [HenEggPickup](https://thunderstore.io/c/valheim/p/DocZee/HenEggPickup/) — automatically collects chicken eggs once enough adult hens are nearby.
-- [AnimalFeedGuard](https://thunderstore.io/c/valheim/p/DocZee/AnimalFeedGuard/) — keeps animal feed on the ground near tamed animals instead of letting automatic pickup collect it.
+- [HenEggPickup](https://thunderstore.io/c/valheim/p/DocZee/HenEggPickup/) â€” automatically collects chicken eggs once enough adult hens are nearby.
+- [AnimalFeedGuard](https://thunderstore.io/c/valheim/p/DocZee/AnimalFeedGuard/) â€” keeps animal feed on the ground near tamed animals instead of letting automatic pickup collect it.

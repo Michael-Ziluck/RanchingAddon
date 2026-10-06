@@ -22,7 +22,7 @@ setup in `.github/workflows/codeql.yml`. Other security features remain enabled.
 
 ## Publication settings
 
-Publication is disabled while RanchingAddon 3.0.0 is being tested. Enable the desired variables only after the in-game checklist passes and publication is authorized.
+Publication is disabled while RanchingAddon 3.0.1 is being tested. Enable the desired variables only after the in-game checklist passes and publication is authorized.
 
 Repository variables:
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.0.1
+
+- Add skill-gated incubation percentage and remaining time to chicken and Asksvin egg hover text.
+- Display stacked and inactive egg states without changing incubation speed or network data.
+- Use each species' existing Growth Info Level Requirement for both juvenile growth and egg information.
+- Test egg species selection, timer boundaries, stack status, and the installed egg-hover patch target.
+
 ## 3.0.0
 
 - Rename the package, assembly, and display name to RanchingAddon. Remove the old chick addon before installing this replacement.

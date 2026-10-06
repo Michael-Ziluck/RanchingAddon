@@ -59,4 +59,22 @@ Equal(1, GrowthPolicy.ShowInfo(0.30f, 30) ? 1 : 0, "hover unlocks at requirement
 Equal(0, GrowthPolicy.ShowInfo(float.NaN, 30) ? 1 : 0, "invalid skill cannot unlock hover");
 Equal(0, GrowthPolicy.ShowInfo(float.PositiveInfinity, 30) ? 1 : 0, "infinite skill cannot unlock hover");
 Equal(1, GrowthPolicy.ShowInfo(1f, 100) ? 1 : 0, "level 100 requirement is attainable");
-Console.WriteLine($"PASS: {checks} growth, ownership, species, and hover checks");
+void Text(string expected, string actual, string scenario)
+{
+    if (expected != actual) throw new Exception($"{scenario}: expected {expected}, got {actual}");
+    checks++;
+}
+Equal((double)GrowthSpecies.Chicken, (double)GrowthPolicy.ClassifyEgg("ChickenEgg", "Chicken"), "chicken egg identified");
+Equal((double)GrowthSpecies.Asksvin, (double)GrowthPolicy.ClassifyEgg("AsksvinEgg", "Asksvin_hatchling"), "Asksvin egg identified");
+Equal((double)GrowthSpecies.None, (double)GrowthPolicy.ClassifyEgg("DragonEgg", "Asksvin_hatchling"), "unrelated egg excluded");
+Equal((double)GrowthSpecies.None, (double)GrowthPolicy.ClassifyEgg("AsksvinEgg", "Chicken"), "mismatched hatchling excluded");
+Text("Incubation: 50% (15:00 remaining)", EggInfo.Describe(1, 100, 1000, 1800), "warm egg progress and countdown");
+Text("Incubation: 99% (00:01 remaining)", EggInfo.Describe(1, 100, 1899, 1800), "not rounded to completion early");
+Text("Incubation: 100% (00:00 remaining)", EggInfo.Describe(1, 100, 1910, 1800), "completed timer awaits vanilla hatch update");
+Text("Incubation: not incubating", EggInfo.Describe(1, 0, 1000, 1800), "cold egg is not shown as complete");
+Text("Incubation: not incubating", EggInfo.Describe(1, double.NaN, 1000, 1800), "invalid timer is not treated as active");
+Text("Incubation: separate stacked eggs to hatch", EggInfo.Describe(2, 100, 1000, 1800), "stacked eggs cannot hatch");
+Text("Incubation: 0% (30:00 remaining)", EggInfo.Describe(1, 1000, 100, 1800), "future timestamp is clamped");
+Text("Incubation: unavailable", EggInfo.Describe(1, 100, 1000, 0), "invalid duration cannot divide by zero");
+Text("Incubation: 0% (90:00 remaining)", EggInfo.Describe(1, 100, 100, 5400), "long modded incubation duration");
+Console.WriteLine($"PASS: {checks} growth, ownership, species, hover, and egg incubation checks");
