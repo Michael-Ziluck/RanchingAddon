@@ -23,10 +23,10 @@ File: `BepInEx/config/com.ziluck.valheim.ranchingchickaddon.cfg`.
 | Section | Setting | Default | Meaning |
 | --- | --- | --- | --- |
 | General | Lock Configuration | true | Only host/server admins can change synchronized settings. |
-| Chicks | Chicken Growth Factor | 2 | Chick maturation speed at Ranching 100, with a player within 10 metres. Range 1â€“10; 1 disables new bonus age. |
-| Chicks | Growth Info Level Requirement | 30 | Viewer's skill required to see chick growth and chicken egg incubation information. Range 0â€“100; 0 disables it. |
-| Asksvin | Asksvin Growth Factor | 2 | Hatchling maturation speed at Ranching 100, with a player within 10 metres. Range 1â€“10; 1 disables new bonus age. |
-| Asksvin | Growth Info Level Requirement | 30 | Viewer's skill required to see hatchling growth and Asksvin egg incubation information. Range 0â€“100; 0 disables it. |
+| Chicks | Chicken Growth Factor | 2 | Chick maturation speed at Ranching 100, with a player within 10 metres. Range 1-10; 1 disables new bonus age. |
+| Chicks | Growth Info Level Requirement | 30 | Viewer's skill required to see chick growth and chicken egg incubation information. Range 0-100; 0 disables it. |
+| Asksvin | Asksvin Growth Factor | 2 | Hatchling maturation speed at Ranching 100, with a player within 10 metres. Range 1-10; 1 disables new bonus age. |
+| Asksvin | Growth Info Level Requirement | 30 | Viewer's skill required to see hatchling growth and Asksvin egg incubation information. Range 0-100; 0 disables it. |
 
 At Ranching 50 with factor 2, growth speed is 1.5x. The nearest player's synchronized skill is used. Proximity is sampled at the game's growth checks, roughly every 10 seconds. First observation after loading or ownership transfer gives no retroactive bonus; long gaps are capped at one interval. Unloaded time earns no proximity bonus.
 
@@ -72,5 +72,5 @@ If you'd like to support ongoing modding work, [Ko-fi](https://ko-fi.com/doczee)
 
 ## Check out my other mods
 
-- [HenEggPickup](https://thunderstore.io/c/valheim/p/DocZee/HenEggPickup/) â€” automatically collects chicken eggs once enough adult hens are nearby.
-- [AnimalFeedGuard](https://thunderstore.io/c/valheim/p/DocZee/AnimalFeedGuard/) â€” keeps animal feed on the ground near tamed animals instead of letting automatic pickup collect it.
+- [HenEggPickup](https://thunderstore.io/c/valheim/p/DocZee/HenEggPickup/) - automatically collects chicken eggs once enough adult hens are nearby.
+- [AnimalFeedGuard](https://thunderstore.io/c/valheim/p/DocZee/AnimalFeedGuard/) - keeps animal feed on the ground near tamed animals instead of letting automatic pickup collect it.

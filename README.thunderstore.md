@@ -23,7 +23,7 @@ Requires **original Smoothbrain Ranching 1.1.9 or later** and BepInExPack Valhei
 
 **RanchingAddon replaces RanchingChickAddon / Ranching_Chick_Addon. Remove the old addon before installing this package.** Do not use the earlier experimental Ranching fork or install duplicate copies of Ranching.
 
-The configuration filename stays `BepInEx/config/com.ziluck.valheim.ranchingchickaddon.cfg` so your existing settings carry over. Configure `Chicken Growth Factor` under `Chicks` and `Asksvin Growth Factor` under `Asksvin` (range 1â€“10). Each section has its own `Growth Info Level Requirement` (range 0â€“100; 0 disables growth and egg displays for that species).
+The configuration filename stays `BepInEx/config/com.ziluck.valheim.ranchingchickaddon.cfg` so your existing settings carry over. Configure `Chicken Growth Factor` under `Chicks` and `Asksvin Growth Factor` under `Asksvin` (range 1-10). Each section has its own `Growth Info Level Requirement` (range 0-100; 0 disables growth and egg displays for that species).
 
 ## Recommended optional dependency
 
@@ -39,5 +39,5 @@ If you'd like to support ongoing modding work, [Ko-fi](https://ko-fi.com/doczee)
 
 ## Check out my other mods
 
-- [HenEggPickup](https://thunderstore.io/c/valheim/p/DocZee/HenEggPickup/) â€” automatically collects chicken eggs once enough adult hens are nearby.
-- [AnimalFeedGuard](https://thunderstore.io/c/valheim/p/DocZee/AnimalFeedGuard/) â€” keeps animal feed on the ground near tamed animals instead of letting automatic pickup collect it.
+- [HenEggPickup](https://thunderstore.io/c/valheim/p/DocZee/HenEggPickup/) - automatically collects chicken eggs once enough adult hens are nearby.
+- [AnimalFeedGuard](https://thunderstore.io/c/valheim/p/DocZee/AnimalFeedGuard/) - keeps animal feed on the ground near tamed animals instead of letting automatic pickup collect it.
