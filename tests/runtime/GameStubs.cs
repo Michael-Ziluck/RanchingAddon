@@ -132,9 +132,11 @@ public class Player : Character
         foreach (Player player in Players)
         {
             float candidateDistance = UnityEngine.Vector3.Distance(position, player.transform.position);
-            if (candidateDistance >= distance) continue;
-            closest = player;
-            distance = candidateDistance;
+            if (candidateDistance < distance)
+            {
+                closest = player;
+                distance = candidateDistance;
+            }
         }
         return closest!;
     }
