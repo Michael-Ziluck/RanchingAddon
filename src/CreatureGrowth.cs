@@ -41,8 +41,10 @@ internal static class CreatureGrowth
 			double seconds = clock.Sample(Time.timeAsDouble, owner, ownerId);
 			if (!owner || seconds <= 0 || Factor(species) <= 1f) return;
 			Player closest = Player.GetClosestPlayer(__instance.transform.position, 10f);
-			if (!closest || !closest.GetComponent<ZNetView>() || !closest.GetComponent<ZNetView>().IsValid()) return;
-			float skill = closest.GetComponent<ZNetView>().GetZDO().GetFloat("Ranching Skill");
+			if (!closest) return;
+			ZNetView playerView = closest.GetComponent<ZNetView>();
+			if (!playerView || !playerView.IsValid()) return;
+			float skill = playerView.GetZDO().GetFloat("Ranching Skill");
 			float extra = (float)GrowthMath.BonusSeconds(seconds, skill, Factor(species));
 			if (extra <= 0) return;
 			ZDO zdo = view!.GetZDO();
