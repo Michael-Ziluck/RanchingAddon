@@ -11,6 +11,7 @@ updates:
     directories:
       - /
       - /tests/checks
+      - /tests/patches
     schedule:
       interval: weekly
     groups:
