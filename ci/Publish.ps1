@@ -7,6 +7,8 @@ param(
     [switch]$SkipExisting
 )
 $ErrorActionPreference = 'Stop'
+# Allow a dry run, but keep uploads off until the new Asksvin behavior is tested.
+if (!$WhatIfPreference) { throw 'Publication is disabled pending RanchingAddon in-game verification.' }
 $root = Split-Path $PSScriptRoot -Parent
 . (Join-Path $PSScriptRoot 'Package-Manifest.ps1')
 $PackageFile = Resolve-Package $PackageFile $root

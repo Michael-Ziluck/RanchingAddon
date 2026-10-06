@@ -1,0 +1,15 @@
+# Gale test checklist
+
+Use a disposable character and world, or a copied save with a rollback. Do not start with the shared world. The build/package scripts do not install anything.
+
+1. Clone your Gale profile into a test profile. Remove RanchingChickAddon / Ranching_Chick_Addon from that profile; keep original Smoothbrain Ranching 1.1.9 or newer. Import `artifacts/RanchingAddon-3.0.0-Thunderstore.zip` as a local mod, or extract its BepInEx folder into the test profile. Do not leave the old addon DLL installed.
+2. Launch and check the BepInEx log for `RanchingAddon ready` and no patch errors. Confirm the existing chick settings still appear in `com.ziluck.valheim.ranchingchickaddon.cfg`, along with a new Asksvin section. ConfigurationManager is optional.
+3. In the disposable world, use `devcommands` and `raiseskill Ranching 100`, then create chicks and Asksvin hatchlings (for example, `spawn Chicken` and `spawn Asksvin_hatchling`). With default settings, hovering should show growth percentage for both; adult hens/Asksvin, eggs, and other juveniles should not gain this display.
+4. For a faster growth comparison, set each growth factor to 10 and stay within 10 metres after the first growth check. Vanilla juveniles need 50 minutes; at skill 100 and factor 10 they should mature in roughly five minutes, subject to update timing. Check that chicks become hens and hatchlings become Asksvin, retaining creature level and inherited tameness. Restore the settings after testing.
+5. Test the factors independently: chicken factor 1 / Asksvin factor 10, then reverse them. With skill 50 and factor 2, expect 1.5x growth. Move farther than 10 metres: newly earned bonus should stop. Ordinary vanilla age continues to pass.
+6. Set each hover requirement to 0 to hide that species' display; then test just below and at its requirement. Verify that any existing name/hover text is preserved.
+7. Save/reload a partially grown juvenile of each species. Previously earned bonus should remain, but the first observation after reload should award no extra age for the time away. Setting factor 1 should keep previously earned progress.
+8. For multiplayer, install the same version on both clients and the host/server. Check settings synchronization/admin locking and growth while ownership transfers between clients. Each viewer's own Ranching skill should control their tooltip; no doubled growth should occur.
+9. Regression-check original Ranching on tame adult Asksvin: taming speed/XP and calming while taming, slaughter drop/XP bonuses, food timer, breeding information, and offspring level-up chance. These use **Ranching's** settings. Compare with the addon removed: its growth/hover additions should be the only differences.
+
+Automated checks cover calculations, ownership clocks, species selection, hover thresholds, actual game-IL substitution, saved key compatibility, and member references. They do not run Unity or replace this checklist.

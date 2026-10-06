@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.0.0
+
+- Rename the package, assembly, and display name to RanchingAddon. Remove the old chick addon before installing this replacement.
+- Add skill-scaled Asksvin hatchling maturation and growth percentage on hover, with separate synchronized settings.
+- Retain the plugin/config identity, chick settings, and saved chick growth bonuses.
+- Require original Ranching 1.1.9; document its existing Asksvin support without duplicating its benefits.
+- Add species/hover checks, actual game-IL patch checks, and a Gale test checklist.
+- Keep publishing disabled pending in-game verification.
+
 ## 2.0.1
 
 - Use `RanchingChickAddon` for the README title while retaining the existing Thunderstore listing.

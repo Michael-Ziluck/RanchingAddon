@@ -1,36 +1,42 @@
-# RanchingChickAddon
+# RanchingAddon
 
-**2.x targets Valheim 1.0**, built and checked against 1.0.16. Use the 1.x releases for Ashlands.
+Faster-growing chicks and Asksvin hatchlings, powered by your **Ranching** skill. See their growth percentage once you reach a configurable skill level.
 
-Adds configurable skill-scaled chick maturation and growth progress to the original Ranching mod.
+[Source and build instructions on GitHub](https://github.com/Michael-Ziluck/RanchingAddon)
 
 ## Features
 
-- Chicken Growth Factor: default 2× at Ranching level 100, configurable from 1× to 10×.
-- Growth scales with the nearest player's Ranching skill and applies within 10 metres.
-- Growth bonus is saved with the chick and does not award unloaded-time catch-up.
-- Growth Info Level Requirement: default level 30; hovering over a chick shows its growth percentage.
-- Eggs and non-chicken animals are unaffected.
-- Configuration is synchronized and admin-lockable through the host/server.
+- Skill-scaled maturation for chicks **and Asksvin hatchlings** near the nearest player within 10 metres.
+- Separate growth-speed settings for chickens and Asksvin. Default: 2x at Ranching 100; 1.5x at Ranching 50.
+- Separate skill requirements for growth information on hover. Default: Ranching 30 for both.
+- Saved bonus growth age, with owner-only updates and no bonus for time spent unloaded.
+- Host/server-synchronized configuration, locked to admins by default.
 
-## Recommended optional mods
+Original Ranching already applies taming speed/XP, calming, increased tamed-creature slaughter drops/XP, hunger information, breeding information, and offspring level bonuses to Asksvin. This addon uses those existing benefits without multiplying them twice. Configure them in Ranching's own settings.
 
-- [ConfigurationManager](https://thunderstore.io/c/valheim/p/shudnal/ConfigurationManager/) — edit settings in game instead of opening the config file. It is optional.
+Egg incubation, adult animals, and other species are unaffected. Existing chick settings and saved bonus growth are preserved.
 
-## Installation
+## Requirements and upgrading
 
-Install this add-on together with [original Ranching](https://thunderstore.io/c/valheim/p/Smoothbrain/Ranching/). Install both on every participating client and on the host/server. Do not install the earlier experimental Ranching fork containing these features.
+Requires **original Smoothbrain Ranching 1.1.9 or later** and BepInExPack Valheim 5.4.2350. Install both mods on **every participating client and the host/dedicated server** so creature ownership can move safely between peers.
 
-## Links
+**RanchingAddon replaces RanchingChickAddon / Ranching_Chick_Addon. Remove the old addon before installing this package.** Do not use the earlier experimental Ranching fork or install duplicate copies of Ranching.
 
-- [Source, documentation, and issue tracker](https://github.com/Michael-Ziluck/RanchingChickAddon)
+The configuration filename stays `BepInEx/config/com.ziluck.valheim.ranchingchickaddon.cfg` so your existing settings carry over. Configure `Chicken Growth Factor` under `Chicks` and `Asksvin Growth Factor` under `Asksvin` (range 1–10). Each section has its own `Growth Info Level Requirement` (range 0–100; 0 disables the display).
 
-## Check out my other mods
+## Recommended optional dependency
 
-- [Hen Egg Pickup](https://thunderstore.io/c/valheim/p/DocZee/HenEggPickup/) — automatically collects chicken eggs once enough adult hens are nearby.
+[shudnal ConfigurationManager](https://thunderstore.io/c/valheim/p/shudnal/ConfigurationManager/) lets you edit the settings in-game. It is optional; the mod also works with the configuration file alone.
 
-- [Animal Feed Guard](https://thunderstore.io/c/valheim/p/DocZee/AnimalFeedGuard/) — keeps animal feed on the ground near tamed animals instead of letting automatic pickup collect it.
+## Compatibility and testing
+
+Targets Valheim 1.0, built against 1.0.16. The earlier chick features were verified by the maintainer. Asksvin support currently has build, calculation, and actual game-IL checks; in-game verification is pending. See the [test checklist](https://github.com/Michael-Ziluck/RanchingAddon/blob/main/docs/testing.md).
+
+This release is prepared for testing; publication is currently disabled.
 
 If you'd like to support ongoing modding work, [Ko-fi](https://ko-fi.com/doczee) is available.
 
-Requires [BepInExPack Valheim](https://thunderstore.io/c/valheim/p/denikson/BepInExPack_Valheim/) and [Smoothbrain Ranching](https://thunderstore.io/c/valheim/p/Smoothbrain/Ranching/).
+## Check out my other mods
+
+- [HenEggPickup](https://thunderstore.io/c/valheim/p/DocZee/HenEggPickup/) — automatically collects chicken eggs once enough adult hens are nearby.
+- [AnimalFeedGuard](https://thunderstore.io/c/valheim/p/DocZee/AnimalFeedGuard/) — keeps animal feed on the ground near tamed animals instead of letting automatic pickup collect it.

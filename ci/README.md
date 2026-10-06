@@ -22,13 +22,15 @@ setup in `.github/workflows/codeql.yml`. Other security features remain enabled.
 
 ## Publication settings
 
+Publication is disabled while RanchingAddon 3.0.0 is being tested. Enable the desired variables only after the in-game checklist passes and publication is authorized.
+
 Repository variables:
 
 | Variable | Value | Purpose |
 | --- | --- | --- |
-| RELEASE_PUBLISH_ENABLED | true | Create `vX.Y.Z` GitHub releases with the ZIP. |
-| THUNDERSTORE_PUBLISH_ENABLED | true | Upload new versions to DocZee on Thunderstore. |
-| HEXIUM_PUBLISH_ENABLED | true | Upload new versions to DocZee on Hexium. |
+| RELEASE_PUBLISH_ENABLED | false | Create `vX.Y.Z` GitHub releases with the ZIP. |
+| THUNDERSTORE_PUBLISH_ENABLED | false | Upload new versions to DocZee on Thunderstore. |
+| HEXIUM_PUBLISH_ENABLED | false | Upload new versions to DocZee on Hexium. |
 
 Repository secrets:
 

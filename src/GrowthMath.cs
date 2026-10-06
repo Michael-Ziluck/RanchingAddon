@@ -1,6 +1,6 @@
 using System;
 
-namespace RanchingChickAddon;
+namespace RanchingAddon;
 
 internal static class GrowthMath
 {

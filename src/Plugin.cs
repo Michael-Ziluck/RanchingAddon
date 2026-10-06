@@ -5,45 +5,64 @@ using BepInEx.Configuration;
 using HarmonyLib;
 using ServerSync;
 
-namespace RanchingChickAddon;
+namespace RanchingAddon;
 
-[BepInPlugin(Guid, "Ranching - Chick Addon", Version)]
-[BepInDependency(RanchingGuid, "1.1.6")]
+[BepInPlugin(Guid, "RanchingAddon", Version)]
+[BepInDependency(RanchingGuid, "1.1.9")]
 public sealed class Plugin : BaseUnityPlugin
 {
+    // Retain the plugin identity and config path for existing installations.
+    // RanchingAddon replaces RanchingChickAddon; install only one package.
     public const string Guid = "com.ziluck.valheim.ranchingchickaddon";
-    public const string Version = "2.0.1";
+    public const string Version = "3.0.0";
     private const string RanchingGuid = "org.bepinex.plugins.ranching";
-    private readonly ConfigSync sync = new(Guid) { DisplayName = "Ranching - Chick Addon", CurrentVersion = Version, MinimumRequiredVersion = Version };
-    internal static ConfigEntry<float> GrowthFactor = null!;
-    internal static ConfigEntry<int> InfoLevel = null!;
+    private readonly ConfigSync sync = new(Guid) { DisplayName = "RanchingAddon", CurrentVersion = Version, MinimumRequiredVersion = Version };
+    internal static ConfigEntry<float> ChickenGrowthFactor = null!;
+    internal static ConfigEntry<float> AsksvinGrowthFactor = null!;
+    internal static ConfigEntry<int> ChickenInfoLevel = null!;
+    internal static ConfigEntry<int> AsksvinInfoLevel = null!;
     private Harmony? harmony;
 
     private void Awake()
     {
-        // The earlier experimental fork already contains these effects.
+        // The earlier experimental fork already contains chicken acceleration.
         if (Chainloader.PluginInfos[RanchingGuid].Instance.GetType().Assembly.GetType("Ranching.ChickenGrowth") != null)
         {
-            Logger.LogError("Chick Addon disabled: replace the experimental Ranching fork with original Smoothbrain-Ranching before using this addon.");
+            Logger.LogError("RanchingAddon disabled: replace the experimental Ranching fork with original Smoothbrain-Ranching before using this addon.");
             return;
         }
         var locked = Config.Bind("General", "Lock Configuration", true, "Only server admins can change synchronized settings when the addon is installed on the host/server.");
         sync.AddLockingConfigEntry(locked);
-        GrowthFactor = Config.Bind("Chicks", "Chicken Growth Factor", 2f, new ConfigDescription("Growth speed at Ranching level 100 with a player within 10 metres. Scales with the nearest player's skill. 1 disables additional growth; earned bonus remains. Eggs and other animals are unaffected.", new AcceptableValueRange<float>(1f, 10f)));
-        InfoLevel = Config.Bind("Chicks", "Growth Info Level Requirement", 30, new ConfigDescription("Viewer's minimum Ranching level to see chick growth percentage. 0 disables the display.", new AcceptableValueRange<int>(0, 100)));
-        sync.AddConfigEntry(GrowthFactor);
-        sync.AddConfigEntry(InfoLevel);
+        // Keep the original section and keys so chick settings survive upgrades.
+        ChickenGrowthFactor = BindGrowthFactor("Chicks", "Chicken Growth Factor");
+        ChickenInfoLevel = BindInfoLevel("Chicks");
+        AsksvinGrowthFactor = BindGrowthFactor("Asksvin", "Asksvin Growth Factor");
+        AsksvinInfoLevel = BindInfoLevel("Asksvin");
         try
         {
             harmony = new Harmony(Guid);
             harmony.PatchAll(typeof(Plugin).Assembly);
-            Logger.LogInfo("Ranching - Chick Addon ready; using the original Ranching skill.");
+            Logger.LogInfo("RanchingAddon ready: chick and Asksvin hatchling growth enabled. Taming, drops, XP, and breeding remain supplied by original Ranching.");
         }
         catch (Exception error)
         {
             harmony?.UnpatchSelf();
-            Logger.LogError($"Chick Addon could not apply its patches and is disabled: {error}");
+            Logger.LogError($"RanchingAddon could not apply its patches and is disabled: {error}");
         }
+    }
+
+    private ConfigEntry<float> BindGrowthFactor(string section, string name)
+    {
+        var entry = Config.Bind(section, name, 2f, new ConfigDescription("Juvenile growth speed at Ranching level 100 with a player within 10 metres. Scales with the nearest player's skill. 1 disables additional growth; earned bonus remains. Egg incubation is unaffected.", new AcceptableValueRange<float>(1f, 10f)));
+        sync.AddConfigEntry(entry);
+        return entry;
+    }
+
+    private ConfigEntry<int> BindInfoLevel(string section)
+    {
+        var entry = Config.Bind(section, "Growth Info Level Requirement", 30, new ConfigDescription("Viewer's minimum Ranching level to see juvenile growth percentage. 0 disables the display.", new AcceptableValueRange<int>(0, 100)));
+        sync.AddConfigEntry(entry);
+        return entry;
     }
 
     internal static float GetSkill(Player player)

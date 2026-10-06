@@ -1,6 +1,6 @@
 # Third-party notices
 
-ServerSync is merged into RanchingChickAddon.dll. Source: https://github.com/blaxxun-boop/ServerSync (release v1.20, recompiled for Valheim 1.0).
+ServerSync is merged into RanchingAddon.dll. Source: https://github.com/blaxxun-boop/ServerSync (release v1.20, recompiled for Valheim 1.0).
 
 Copyright 2021 Tykea
 

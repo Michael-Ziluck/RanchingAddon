@@ -1,5 +1,5 @@
 using System;
-using RanchingChickAddon;
+using RanchingAddon;
 
 int checks = 0;
 void Equal(double expected, double actual, string scenario)
@@ -34,4 +34,29 @@ Equal(100, GrowthMath.Percent(900, 200, 1000), "display clamps completion");
 Equal(0, GrowthMath.Percent(-10, 0, 1000), "display clamps negative age");
 Equal(0, GrowthMath.Percent(10, 0, 0), "zero duration handled");
 Equal(50, GrowthMath.Percent(400, 100, 1000), "persisted bonus remains in progress after reload");
-Console.WriteLine($"PASS: {checks} chicken growth checks");
+void Species(GrowthSpecies expected, string juvenile, string adult)
+{
+    if (GrowthPolicy.Classify(juvenile, adult) != expected)
+        throw new Exception($"Unexpected species for {juvenile} -> {adult}");
+    checks++;
+}
+
+Species(GrowthSpecies.Chicken, "Chicken", "Hen");
+Species(GrowthSpecies.Asksvin, "Asksvin_hatchling", "Asksvin");
+Species(GrowthSpecies.None, "Wolf_cub", "Wolf");
+Species(GrowthSpecies.None, "Boar_piggy", "Boar");
+Species(GrowthSpecies.None, "Asksvin", "Asksvin");
+Species(GrowthSpecies.None, "CustomHatchling", "Asksvin");
+Species(GrowthSpecies.None, "Chicken", "Asksvin");
+Species(GrowthSpecies.None, "Asksvin_hatchling", "Hen");
+Species(GrowthSpecies.None, "ChickenEgg", "Chicken");
+Species(GrowthSpecies.None, "AsksvinEgg", "Asksvin_hatchling");
+Species(GrowthSpecies.None, "asksvin_hatchling", "Asksvin");
+
+Equal(0, GrowthPolicy.ShowInfo(1f, 0) ? 1 : 0, "zero requirement disables hover");
+Equal(0, GrowthPolicy.ShowInfo(0.29f, 30) ? 1 : 0, "hover locked below skill requirement");
+Equal(1, GrowthPolicy.ShowInfo(0.30f, 30) ? 1 : 0, "hover unlocks at requirement");
+Equal(0, GrowthPolicy.ShowInfo(float.NaN, 30) ? 1 : 0, "invalid skill cannot unlock hover");
+Equal(0, GrowthPolicy.ShowInfo(float.PositiveInfinity, 30) ? 1 : 0, "infinite skill cannot unlock hover");
+Equal(1, GrowthPolicy.ShowInfo(1f, 100) ? 1 : 0, "level 100 requirement is attainable");
+Console.WriteLine($"PASS: {checks} growth, ownership, species, and hover checks");

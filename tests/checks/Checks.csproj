@@ -7,5 +7,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="../../src/GrowthMath.cs" Link="GrowthMath.cs" />
+    <Compile Include="../../src/GrowthPolicy.cs" Link="GrowthPolicy.cs" />
   </ItemGroup>
 </Project>
