@@ -4,8 +4,8 @@ namespace RanchingAddon;
 
 internal sealed class GrowthClock
 {
-    private double lastTime;
-    private long lastOwner;
+    private double lastSampleTime;
+    private long lastOwnerId;
     private bool wasOwner;
 
     // ConditionalWeakTable.GetOrCreateValue requires a public constructor.
@@ -13,9 +13,10 @@ internal sealed class GrowthClock
 
     internal double Sample(double now, bool owner, long ownerId)
     {
-        double elapsed = owner && wasOwner && lastOwner == ownerId ? Math.Max(0, Math.Min(10, now - lastTime)) : 0;
-        lastTime = now;
-        lastOwner = ownerId;
+        bool continuousOwnership = owner && wasOwner && lastOwnerId == ownerId;
+        double elapsed = continuousOwnership ? Math.Max(0, Math.Min(10, now - lastSampleTime)) : 0;
+        lastSampleTime = now;
+        lastOwnerId = ownerId;
         wasOwner = owner;
         return elapsed;
     }
