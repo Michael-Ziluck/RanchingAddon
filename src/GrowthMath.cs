@@ -16,21 +16,3 @@ internal static class GrowthMath
 		return (int)Math.Floor(Math.Max(0, Math.Min(100, (age + bonus) / duration * 100)));
 	}
 }
-
-internal sealed class GrowthClock
-{
-	private double lastTime;
-	private long lastOwner;
-	private bool wasOwner;
-
-	public GrowthClock() { }
-
-	internal double Sample(double now, bool owner, long ownerId)
-	{
-		double elapsed = owner && wasOwner && lastOwner == ownerId ? Math.Max(0, Math.Min(10, now - lastTime)) : 0;
-		lastTime = now;
-		lastOwner = ownerId;
-		wasOwner = owner;
-		return elapsed;
-	}
-}
