@@ -42,6 +42,14 @@ if ([string]::IsNullOrWhiteSpace($token)) { throw "$tokenName is not set." }
 $stage = Join-Path $root ('.local/publish-' + [guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path $stage -Force | Out-Null
 [IO.Compression.ZipFile]::ExtractToDirectory($PackageFile, $stage)
+# Thunderstore has Ranching 1.1.6, while the required 1.1.9 is on Hexium.
+# Keep the DLL's minimum version; the README explains the manual prerequisite.
+if ($Registry -eq 'Thunderstore') {
+    $manifest.dependencies = @($manifest.dependencies | Where-Object { $_ -ne 'Smoothbrain-Ranching-1.1.9' })
+    $manifest | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $stage 'manifest.json') -Encoding utf8
+    $PackageFile = "$stage.zip"
+    [IO.Compression.ZipFile]::CreateFromDirectory($stage, $PackageFile)
+}
 # TCLI reads publication metadata from TOML. Generate it from this exact ZIP,
 # keeping future version bumps and dependencies consistent with the upload.
 function Toml-String($Value) { return ConvertTo-Json -InputObject ([string]$Value) -Compress }

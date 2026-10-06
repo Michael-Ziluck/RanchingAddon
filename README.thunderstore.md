@@ -21,6 +21,8 @@ Egg incubation speed, adult animals, and other species are unaffected. Chicken a
 
 Requires **original Smoothbrain Ranching 1.1.9 or later** and BepInExPack Valheim 5.4.2350. Install both mods on **every participating client and the host/dedicated server** so creature ownership can move safely between peers.
 
+**Thunderstore users must install Ranching 1.1.9 manually before this addon.** Thunderstore only has Ranching 1.1.6, which this addon cannot load with. Download Ranching 1.1.9 from [Hexium](https://valheim.hexium.gg/mods/Smoothbrain/Ranching) and install its `BepInEx` folder into the same game or mod-manager profile. Keep only one Ranching DLL. The Hexium package installs this dependency automatically.
+
 **RanchingAddon replaces RanchingChickAddon / Ranching_Chick_Addon. Remove the old addon before installing this package.** Do not use the earlier experimental Ranching fork or install duplicate copies of Ranching.
 
 The configuration filename stays `BepInEx/config/com.ziluck.valheim.ranchingchickaddon.cfg` so your existing settings carry over. Configure `Chicken Growth Factor` under `Chicks` and `Asksvin Growth Factor` under `Asksvin` (range 1-10). Each section has its own `Growth Info Level Requirement` (range 0-100; 0 disables growth and egg displays for that species).

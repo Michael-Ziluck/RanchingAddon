@@ -8,6 +8,8 @@ Version 3.0.2 targets Valheim 1.0 and replaces RanchingChickAddon. The maintaine
 
 Install BepInExPack Valheim 5.4.2350 and **original Ranching 1.1.9 or later**. Install through your mod manager, or import the local ZIP into your Gale profile. For manual installation, extract `BepInEx/plugins/RanchingAddon/RanchingAddon.dll` into the profile.
 
+**Thunderstore users must install Ranching 1.1.9 manually.** Thunderstore only has Ranching 1.1.6, which this addon cannot load with. Download Ranching 1.1.9 from [Hexium](https://valheim.hexium.gg/mods/Smoothbrain/Ranching) and install its `BepInEx` folder into the same game or mod-manager profile first. Keep only one Ranching DLL. Hexium installs the required dependency automatically.
+
 **Remove RanchingChickAddon (including the older Ranching_Chick_Addon package) before installing RanchingAddon.** They share a plugin identity to preserve existing configuration; installing both packages leaves duplicate DLLs. Do not use the earlier experimental Ranching fork, which already contains chicken growth patches. RanchingAddon detects that fork and disables itself.
 
 The package, assembly, and display name are now `RanchingAddon`. The plugin ID and configuration filename remain `com.ziluck.valheim.ranchingchickaddon` for compatibility. Existing chick settings and saved growth bonus age are retained without modifying birth timestamps or rewriting saves.

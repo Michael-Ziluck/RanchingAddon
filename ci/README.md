@@ -37,8 +37,10 @@ Repository secrets:
 - `THUNDERSTORE_API_TOKEN`: the DocZee service-account token.
 - `HEXIUM_API_TOKEN`: a Hexium API token with permission to upload under DocZee. It is a separate token.
 
-Packages use the Valheim community. Both registries receive the same built ZIP, with metadata
-derived from its manifest. Hexium's API documents Thunderstore-compatible upload endpoints;
+Packages use the Valheim community. Both registries receive the same plugin DLL. The source ZIP
+declares Ranching 1.1.9 for Hexium. Thunderstore publication removes that unavailable dependency
+from its upload manifest; the README explains manual installation from Hexium. The DLL still
+requires Ranching 1.1.9, and the source manifest is unchanged. Hexium's API documents Thunderstore-compatible upload endpoints;
 `ci/Publish-Hexium.ps1` uses the same pinned CLI against `https://valheim.hexium.gg`.
 Hexium publication uses the DocZee team token stored in the HEXIUM_API_TOKEN repository secret.
 
