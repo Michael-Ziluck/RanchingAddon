@@ -1,6 +1,6 @@
 {
   "name": "RanchingAddon",
-  "version_number": "3.0.1",
+  "version_number": "3.0.2",
   "website_url": "https://github.com/Michael-Ziluck/RanchingAddon",
   "description": "Skill-scaled chick and Asksvin hatchling growth, with level-gated growth information. Uses original Ranching for taming, drops, and breeding; host-synchronized settings.",
   "dependencies": [

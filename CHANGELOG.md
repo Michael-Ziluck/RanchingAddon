@@ -1,11 +1,12 @@
 # Changelog
 
-## Unreleased
+## 3.0.2 - 2026-10-06
 
 - Separate the ownership clock from growth calculations and name the calculation limits explicitly.
 - Reuse the nearest player's network component during a growth update.
 - Add simulated growth and hover hook checks, plus clock and transpiler boundary tests.
 - Include every check project in dependency updates.
+- Maintainer confirmed the current build works as intended in game.
 
 ## 3.0.1
 

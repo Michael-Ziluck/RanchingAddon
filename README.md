@@ -2,11 +2,11 @@
 
 A companion to [Smoothbrain Ranching](https://thunderstore.io/c/valheim/p/Smoothbrain/Ranching/) for chickens and Asksvin. Adds skill-scaled juvenile growth and growth percentages on hover, while original Ranching supplies taming, drops, XP, and breeding benefits for both species.
 
-Version 3.0.1 targets Valheim 1.0 and replaces RanchingChickAddon. This release is prepared for testing; automatic publication is disabled.
+Version 3.0.2 targets Valheim 1.0 and replaces RanchingChickAddon. The maintainer has tested the current build and confirmed it works as intended.
 
 ## Installation and upgrading
 
-Install BepInExPack Valheim 5.4.2350 and **original Ranching 1.1.9 or later**. In Gale, use a separate test profile and import the local ZIP. For manual installation, extract `BepInEx/plugins/RanchingAddon/RanchingAddon.dll` into the profile.
+Install BepInExPack Valheim 5.4.2350 and **original Ranching 1.1.9 or later**. Install through your mod manager, or import the local ZIP into your Gale profile. For manual installation, extract `BepInEx/plugins/RanchingAddon/RanchingAddon.dll` into the profile.
 
 **Remove RanchingChickAddon (including the older Ranching_Chick_Addon package) before installing RanchingAddon.** They share a plugin identity to preserve existing configuration; installing both packages leaves duplicate DLLs. Do not use the earlier experimental Ranching fork, which already contains chicken growth patches. RanchingAddon detects that fork and disables itself.
 
@@ -54,13 +54,13 @@ Upstream does **not** accelerate `Growup` or add juvenile growth hover text. Tho
 ./ci/Build.ps1 -GamePath "E:\Games\SteamLibrary\steamapps\common\Valheim"
 ```
 
-Build compiles Release, runs growth/ownership/species/hover checks, tests the transpiler against actual game IL, verifies game/framework references, and creates `artifacts/RanchingAddon-3.0.1-Thunderstore.zip`. Use `-OutputDirectory` to choose another destination. Scripts never install the mod or edit saves.
+Build compiles Release, runs growth/ownership/species/hover checks, tests the transpiler against actual game IL, verifies game/framework references, and creates `artifacts/RanchingAddon-3.0.2-Thunderstore.zip`. Use `-OutputDirectory` to choose another destination. Scripts never install the mod or edit saves.
 
 The runtime harness also executes the production growth and hover hooks through Harmony against simulated game objects. It checks owner changes, player proximity and skill, persisted bonus age, maturation, and read-only hover behavior. It does not run Unity or ServerSync networking.
 
 Requires PowerShell 7, a .NET SDK, and local Valheim/BepInEx assemblies. ServerSync v1.20 is downloaded into an ignored cache with SHA-256 verification; ILRepack merges it into the plugin under its MIT-0 license. Ranching and SkillManager remain separate dependencies and are neither copied nor linked as assembly references.
 
-Both registry publishing scripts support `-WhatIf`. GitHub Actions builds and CodeQL use real dedicated-server assemblies; see [ci/README.md](ci/README.md). Publication remains disabled for this test release.
+Both registry publishing scripts support `-WhatIf`. GitHub Actions builds and CodeQL use real dedicated-server assemblies; see [ci/README.md](ci/README.md). Approved versions publish to Thunderstore and Hexium.
 
 ## Testing status
 

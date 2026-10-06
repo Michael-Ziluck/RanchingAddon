@@ -14,7 +14,7 @@ public sealed class Plugin : BaseUnityPlugin
     // Retain the plugin identity and config path for existing installations.
     // RanchingAddon replaces RanchingChickAddon; install only one package.
     public const string Guid = "com.ziluck.valheim.ranchingchickaddon";
-    public const string Version = "3.0.1";
+    public const string Version = "3.0.2";
     private const string RanchingGuid = "org.bepinex.plugins.ranching";
     private readonly ConfigSync sync = new(Guid) { DisplayName = "RanchingAddon", CurrentVersion = Version, MinimumRequiredVersion = Version };
     internal static ConfigEntry<float> ChickenGrowthFactor = null!;

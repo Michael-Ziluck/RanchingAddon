@@ -31,9 +31,7 @@ The configuration filename stays `BepInEx/config/com.ziluck.valheim.ranchingchic
 
 ## Compatibility and testing
 
-Targets Valheim 1.0, built against 1.0.16. The earlier chick features were verified by the maintainer. Asksvin support currently has build, calculation, and actual game-IL checks; in-game verification is pending. See the [test checklist](https://github.com/Michael-Ziluck/RanchingAddon/blob/main/docs/testing.md).
-
-This release is prepared for testing; publication is currently disabled.
+Targets Valheim 1.0, built against 1.0.16. The maintainer has tested the current build and confirmed it works as intended. Automated checks cover growth calculations, simulated hooks, and actual game IL. See the [test checklist](https://github.com/Michael-Ziluck/RanchingAddon/blob/main/docs/testing.md).
 
 If you'd like to support ongoing modding work, [Ko-fi](https://ko-fi.com/doczee) is available.
 

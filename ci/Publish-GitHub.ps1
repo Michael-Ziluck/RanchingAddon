@@ -1,6 +1,5 @@
 param([Parameter(Mandatory)][string]$PackageFile)
 $ErrorActionPreference = 'Stop'
-throw 'Publication is disabled pending RanchingAddon in-game verification.'
 . (Join-Path $PSScriptRoot 'Package-Manifest.ps1')
 $manifest = Get-PackageManifest $PackageFile
 $project = @(Get-ChildItem (Split-Path $PSScriptRoot -Parent) -Filter '*.csproj' -File)
